@@ -15,15 +15,7 @@ class ApiClient {
     fileprivate let apiKey = "a2a064fca22344f9b71235252200707"
     
     var baseUrl: URL {
-        return URL(string: "http://api.weatherapi.com/v1")!
-    }
-    
-    var currentUrl: URL {
-        return URL(string: "\(baseUrl)/current.json?key=\(apiKey)&q=")!
-    }
-    
-    var forecastUrl: URL {
-        return URL(string: "\(baseUrl)/forecast.json?key=\(apiKey)&q=")!
+        return URL(string: "http://api.weatherapi.com/v1/current.json?key=\(apiKey)&q=")!
     }
     
     let session: URLSession
@@ -38,13 +30,9 @@ class ApiClient {
     }
     
     typealias FetchCurrentWeatherCompletionHandler = (CurrentData?, Error?) -> Void
-    typealias FetchForecastWeatherCompletionHandler = (ForecastData?, Error?) -> Void
     
-    func fetchCurrentData(at location: String, units: Int, completionHandler completion: FetchCurrentWeatherCompletionHandler) {
-        
-    }
     
-    func fetchForecastData(at location: String, units: Int, completionHandler completion: FetchForecastWeatherCompletionHandler) {
+    func fetchWeatherData(at location: String, units: Int, completionHandler completion: @escaping FetchCurrentWeatherCompletionHandler) {
         
     }
     
